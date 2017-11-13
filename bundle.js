@@ -31495,6 +31495,8 @@ var router = express.Router();
 router.get('/', _templateController2.default.home);
 router.get('/list', _templateController2.default.getList);
 router.get('/userform', _templateController2.default.userform);
+router.post('/details/:id', _templateController2.default.userDetails);
+router.post('/edit/:id', _templateController2.default.editUser);
 
 module.exports = router;
 
@@ -31603,6 +31605,100 @@ var MyController = function () {
     value: function userform(req, res) {
       res.render('form');
     }
+  }, {
+    key: 'userDetails',
+    value: function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {
+        var id, data, jso, response;
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                id = req.params.id;
+                _context3.next = 4;
+                return fetch('https://studentresourc.herokuapp.com/api/v1/finduser/' + id);
+
+              case 4:
+                data = _context3.sent;
+                _context3.next = 7;
+                return data.json();
+
+              case 7:
+                jso = _context3.sent;
+                response = jso.result;
+
+                res.render('details', { details: response });
+                _context3.next = 15;
+                break;
+
+              case 12:
+                _context3.prev = 12;
+                _context3.t0 = _context3['catch'](0);
+
+                console.log(_context3.t0);
+
+              case 15:
+              case 'end':
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 12]]);
+      }));
+
+      function userDetails(_x5, _x6) {
+        return _ref3.apply(this, arguments);
+      }
+
+      return userDetails;
+    }()
+  }, {
+    key: 'editUser',
+    value: function () {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {
+        var id, data, jso, response;
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.prev = 0;
+                id = req.params.id;
+                _context4.next = 4;
+                return fetch('https://studentresourc.herokuapp.com/api/v1/finduser/' + id);
+
+              case 4:
+                data = _context4.sent;
+                _context4.next = 7;
+                return data.json();
+
+              case 7:
+                jso = _context4.sent;
+                response = jso.result;
+
+                res.render('edit', { details: response });
+                _context4.next = 15;
+                break;
+
+              case 12:
+                _context4.prev = 12;
+                _context4.t0 = _context4['catch'](0);
+
+                console.log(_context4.t0);
+
+              case 15:
+              case 'end':
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this, [[0, 12]]);
+      }));
+
+      function editUser(_x7, _x8) {
+        return _ref4.apply(this, arguments);
+      }
+
+      return editUser;
+    }()
   }]);
 
   return MyController;

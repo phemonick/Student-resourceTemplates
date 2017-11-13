@@ -6,5 +6,7 @@ import MyController from '../controllers/templateController'
 router.get('/', MyController.home )
 router.get('/list', MyController.getList)
 router.get('/userform', MyController.userform)
+router.post('/details/:id', MyController.userDetails)
+router.post('/edit/:id', MyController.editUser)
 
 module.exports = router;

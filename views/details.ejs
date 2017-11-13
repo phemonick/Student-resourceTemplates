@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Student Resources</title>
-
+  <title>details</title>
   <meta charset="utf-8">
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -21,6 +20,47 @@
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
   <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+  <style>
+    .flexDetails{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      margin: 0 auto;
+      border: 1px solid grey;
+
+    }
+    .senBtn{
+      background: grey;
+      padding: 20px;
+      margin: 10px;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      font-smoothing: antialiased;
+      -webkit-font-smoothing: antialiased;
+      -moz-font-smoothing: antialiased;
+      background: #fff;
+      outline: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      color: #8b95a3; }
+      body img {
+        border: none;
+        max-width: 100%;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        -ms-user-select: none;
+        user-select: none; }
+
+  </style>
 
 </head>
 
@@ -69,7 +109,7 @@
                   <a href="/userform">Create Resource</a>
                 </li>
                 <li>
-                  <a href="/list">List Resource</a>
+                  <a href="/list.ejs">List Resource</a>
                 </li>
               </ul><!-- end menu -->
 
@@ -86,56 +126,27 @@
     <div class="content-wrapper oh">
 
       <!-- Hero -->
-      <section class="hero bg-gradient bg-gradient--1 white-text">
+  <!-- end hero -->
+  <div class="flexDetails">
+    <h2> <%=details.name %></h2>
+    <p><%=details.sex %></h2></p>
+    <p><%=details.matricId %></h2></p>
+    <p><%=details.department %></h2></p>
+    <p><%=details.level %></h2> </p>
+    <p><%=details.email %></h2></p>
+      <p><%=details.phone %></h2></p>
+      <div style="display:flex">
+<form action="/edit/<%=details.id %>" method="post">
+        <input type="submit" name="submit" value="Edit" />
+</form>
+<form action="https://studentresourc.herokuapp.com/api/v1/deleteresource/<%=details.id %>" method="post">
+        <input type="submit" name="submit" value="Delete" />
+</form>
 
-        <!-- SVG Wave -->
-        <svg version="1.1" class="wave" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 152.8" enable-background="new 0 0 1920 152.8" xml:space="preserve">
-          <path class="wave-path" d="M1,152.4v-61c0,0,257.3,56.4,431,44c260.8-18.7,490.2-63.1,647-97c496.4-107.3,842,42,842,42v72H1z"/>
-        </svg>
-
-        <div class="container hero__container hero__container--720">
-
-          <div class="row hero__outer flex-vertical-align-center">
-            <div class="col-lg-5 col-md-7 text-center hidden-sm hidden-xs">
-              <img src="img/student.png"  alt="">
-            </div>
-            <div class="col-lg-6 col-md-5">
-              <h1 class="hero__title hero--boxed">Welcome To Student Resources</h1>
-              <p class="hero__subtitle">An idea that takes the parts of a structure and turns whole system. Practice is the frequent and continued contemplation of the mode of executing any given work.</p>
-              <div class="hero__btn-holder mt-30">
-                <a href="/userform" class="btn btn--lg btn--transparent rounded"><span>Create Resource</span></a>
-                <a href="/list" class="btn btn--lg btn--color btn--icon rounded"><span>List Resource</span></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section> <!-- end hero -->
-
-
+</div>
 
       <!-- CTA -->
-      <section class="section-wrap bg-light bottom-divider">
-        <div class="container text-center">
-
-          <div class="heading-row">
-            <h2 class="heading">Get the app that suits you</h2>
-          </div>
-
-          <div class="btn__holder">
-            <a href="#" class="btn btn--x-large btn--icon btn--google">
-              <i class="ui-android"></i><span>Google Play</span>
-            </a>
-            <a href="#" class="btn btn--x-large btn--icon btn--apple">
-              <i class="ui-apple"></i><span>App Store</span>
-            </a>
-            <a href="#" class="btn btn--x-large btn--icon btn--windows">
-              <i class="ui-windows"></i><span>Windows Store</span>
-            </a>
-          </div>
-
-        </div>
-      </section> <!-- end CTA -->
+     <!-- end CTA -->
 
 
       <!-- Footer -->

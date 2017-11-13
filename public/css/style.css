@@ -86,6 +86,19 @@ hr {
   border: 1px solid grey;
   width: 30%;
 }
+.viewBtn{
+  background: grey;
+  color:#fff;
+  border: 1px solid blue;
+  width: 40px;
+}
+.flexDetails{
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid grey;
+  height: 100px
+}
 
 /*-------------------------------------------------------*/
 /* Preloader

@@ -97,6 +97,9 @@
         <p><%=value.level %></h2> </p>
         <p><%=value.email %></h2></p>
           <p><%=value.phone %></h2></p>
+          <form action="/details/<%=value.id %>" method="post">
+            <input type="submit" name="submit" value="view Details">
+          </form>
       </div>
      <% }) %>
     </div>
